@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Clock Ins</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Teacher</th>
+      <th>Clock In Time</th>
+      <th>Clock Out Time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clock_ins.each do |clock_in| %>
+      <tr>
+        <td><%= clock_in.teacher.first_name %></td>
+        <td><%= clock_in.created_at %></td>
+        <% if clock_in.created_at < clock_in.updated_at %>
+        <td><%= clock_in.updated_at %></td>
+        <% else %>
+          <td>    _ </td>
+        <% end %>
+        <td><%= link_to 'Show', clock_in %></td>
+        <td><%= link_to 'Destroy', clock_in, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

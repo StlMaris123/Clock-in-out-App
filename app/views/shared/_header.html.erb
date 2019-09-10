@@ -1,0 +1,33 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">The clock in app</a>
+    </div>
+    <div class="collapse navbar-collapse">
+     <% if teacher_signed_in? %>
+      <ul class="nav navbar-nav">
+        
+        <li><a href="/teachers">Teachers</a></li>
+        <li><a href="/clock_ins">Clock Ins & Outs</a></li>
+      </ul>
+      <p class="navbar-text pull-right">
+        
+          Logged in as <strong><%= current_teacher.first_name %></strong>.
+          <%= link_to 'Edit profile', edit_teacher_registration_path, :class => 'navbar-link' %> |
+          <%= link_to "Logout(Clock Out)", destroy_teacher_session_path, method: :delete, :class => 'navbar-link'  %>
+        </p>
+        <% else %>
+        <p class="navbar-text pull-right">
+          <%= link_to "Sign up", new_teacher_registration_path, :class => 'navbar-link'  %> |
+          <%= link_to "Login", new_teacher_session_path, :class => 'navbar-link'  %>
+        <% end %>
+    </p>   
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Teacher:</strong>
+  <%= @clock_in.teacher.first_name %>
+</p>
+
+
+<p><strong>Clock in time:</strong></p>
+<p><%= @clock_in.created_at %></p>
+
+<p><strong>Clock out time:</strong></p>
+<% if @clock_in.created_at < @clock_in.updated_at %>
+   <p><%= @clock_in.updated_at %></p>
+<% else %>
+  <p>  _ </p>
+<% end %>
+
+<%= link_to 'Back', clock_ins_path %>
