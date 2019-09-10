@@ -4,7 +4,7 @@ class ClockInsController < ApplicationController
   # GET /clock_ins
   # GET /clock_ins.json
   def index
-    @clock_ins = ClockIn.all
+    @clock_ins = ClockIn.reverse_chronological
   end
 
   # GET /clock_ins/1
